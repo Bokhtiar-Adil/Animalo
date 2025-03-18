@@ -116,57 +116,57 @@ public class MainActivity extends AppCompatActivity {
     lang.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
       @Override
       public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        switch (i) {
-          case R.id.english:
-            langText.setText(R.string.lang);
-            header_1.setText(getString(R.string.main_header_1));
-            header_2.setText(getString(R.string.main_header_2));
-            header_3.setText(getString(R.string.main_header_3));
-            para_1.setText(getString(R.string.main_capture));
-            para_2.setText(getString(R.string.main_encyclo));
-            para_3.setText(getString(R.string.main_online_feature));
-            camerabtn.setTypeface(tf2);
-            gallerybtn.setTypeface(tf2);
-            aboutbtn.setTypeface(tf2);
-            encyclobtn.setTypeface(tf2);
-            game1btn.setTypeface(tf2);
-            game2btn.setTypeface(tf2);
-            camerabtn.setText(R.string.main_camerabtn);
-            gallerybtn.setText(R.string.main_gallerybtn);
-            encyclobtn.setText(R.string.main_encybtn);
-            game1btn.setText(R.string.main_game1btn);
-            game2btn.setText(R.string.main_game2btn);
-            aboutbtn.setText(R.string.main_aboutbtn);
-            language = 0;
-            GlobalSettings.language = 0;
-            break;
-          case R.id.bangla:
-            langText.setText(R.string.lang_bangla);
-            header_1.setText(getString(R.string.main_header_1_bangla));
-            header_2.setText(getString(R.string.main_header_2_bangla));
-            header_3.setText(getString(R.string.main_header_3_bangla));
-            para_1.setText(getString(R.string.main_capture_bangla));
-            para_2.setText(getString(R.string.main_encyclo_bangla));
-            para_3.setText(getString(R.string.main_online_feature_bangla));
-            camerabtn.setTypeface(tf);
-            gallerybtn.setTypeface(tf);
-            aboutbtn.setTypeface(tf);
-            encyclobtn.setTypeface(tf);
-            game1btn.setTypeface(tf);
-            game2btn.setTypeface(tf);
-            camerabtn.setText(R.string.main_camerabtn_bangla);
-            gallerybtn.setText(R.string.main_gallerybtn_bangla);
-            encyclobtn.setText(R.string.main_encybtn_bangla);
-            aboutbtn.setText(R.string.main_aboutbtn_bangla);
-            game1btn.setText(R.string.main_game1btn_bangla);
-            game2btn.setText(R.string.main_game2btn_bangla);
-            aboutbtn.setText(R.string.main_aboutbtn_bangla);
-            language = 1;
-            GlobalSettings.language = 1;
-            break;
-          default:
-            throw new IllegalStateException("Unexpected value: " + i);
+        if (i == R.id.english)
+        {
+          langText.setText(R.string.lang);
+          header_1.setText(getString(R.string.main_header_1));
+          header_2.setText(getString(R.string.main_header_2));
+          header_3.setText(getString(R.string.main_header_3));
+          para_1.setText(getString(R.string.main_capture));
+          para_2.setText(getString(R.string.main_encyclo));
+          para_3.setText(getString(R.string.main_online_feature));
+          camerabtn.setTypeface(tf2);
+          gallerybtn.setTypeface(tf2);
+          aboutbtn.setTypeface(tf2);
+          encyclobtn.setTypeface(tf2);
+          game1btn.setTypeface(tf2);
+          game2btn.setTypeface(tf2);
+          camerabtn.setText(R.string.main_camerabtn);
+          gallerybtn.setText(R.string.main_gallerybtn);
+          encyclobtn.setText(R.string.main_encybtn);
+          game1btn.setText(R.string.main_game1btn);
+          game2btn.setText(R.string.main_game2btn);
+          aboutbtn.setText(R.string.main_aboutbtn);
+          language = 0;
+          GlobalSettings.language = 0;
         }
+        else if (i == R.id.bangla)
+        {
+          langText.setText(R.string.lang_bangla);
+          header_1.setText(getString(R.string.main_header_1_bangla));
+          header_2.setText(getString(R.string.main_header_2_bangla));
+          header_3.setText(getString(R.string.main_header_3_bangla));
+          para_1.setText(getString(R.string.main_capture_bangla));
+          para_2.setText(getString(R.string.main_encyclo_bangla));
+          para_3.setText(getString(R.string.main_online_feature_bangla));
+          camerabtn.setTypeface(tf);
+          gallerybtn.setTypeface(tf);
+          aboutbtn.setTypeface(tf);
+          encyclobtn.setTypeface(tf);
+          game1btn.setTypeface(tf);
+          game2btn.setTypeface(tf);
+          camerabtn.setText(R.string.main_camerabtn_bangla);
+          gallerybtn.setText(R.string.main_gallerybtn_bangla);
+          encyclobtn.setText(R.string.main_encybtn_bangla);
+          aboutbtn.setText(R.string.main_aboutbtn_bangla);
+          game1btn.setText(R.string.main_game1btn_bangla);
+          game2btn.setText(R.string.main_game2btn_bangla);
+          aboutbtn.setText(R.string.main_aboutbtn_bangla);
+          language = 1;
+          GlobalSettings.language = 1;
+        }
+        else
+          throw new IllegalStateException("Unexpected value: " + i);
       }
     });
 

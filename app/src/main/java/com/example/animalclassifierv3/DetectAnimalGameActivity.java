@@ -275,130 +275,130 @@ public class DetectAnimalGameActivity extends AppCompatActivity implements View.
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.optionA:
-                if(rtOpInd==0) {
-                    roundTimer.cancel();
-                    correctSnd.start();
-                    optionsView.setVisibility(View.GONE);
-                    resultView.setVisibility(View.VISIBLE);
-                    Picasso.get().load(AnimalDetails.PHOTOS[curr][rndmImgInd]).into(resImg);
-                    score++;
-                    if(roundCnt==10) roundEnd();
-                    resMsg.setTextColor(getResources().getColor(R.color.lime));
-                    if(language==0) {
-                        resMsg.setText(R.string.quiz_correct_answer);
-                        resCorrect.setText("Correct Answer: "+optionA.getText());
-                        resScore.setText("Current Score: "+String.valueOf(score)+" / "+"10");
-                    }
-                    else {
-                        resMsg.setText(R.string.quiz_correct_answer_bangla);
-                        resCorrect.setText("সঠিক উত্তরঃ "+optionA.getText());
-                        resScore.setText("বর্তমান স্কোরঃ "+String.valueOf(score)+" / "+"10");
-                    }
+        if (view.getId() == R.id.optionA)
+        {
+            if(rtOpInd==0) {
+                roundTimer.cancel();
+                correctSnd.start();
+                optionsView.setVisibility(View.GONE);
+                resultView.setVisibility(View.VISIBLE);
+                Picasso.get().load(AnimalDetails.PHOTOS[curr][rndmImgInd]).into(resImg);
+                score++;
+                if(roundCnt==10) roundEnd();
+                resMsg.setTextColor(getResources().getColor(R.color.lime));
+                if(language==0) {
+                    resMsg.setText(R.string.quiz_correct_answer);
+                    resCorrect.setText("Correct Answer: "+optionA.getText());
+                    resScore.setText("Current Score: "+String.valueOf(score)+" / "+"10");
                 }
-                else wrongAnswer();
-                break;
-
-            case R.id.optionB:
-                if(rtOpInd==1) {
-                    roundTimer.cancel();
-                    correctSnd.start();
-                    optionsView.setVisibility(View.GONE);
-                    resultView.setVisibility(View.VISIBLE);
-                    Picasso.get().load(AnimalDetails.PHOTOS[curr][rndmImgInd]).into(resImg);
-                    score++;
-                    if(roundCnt==10) roundEnd();
-                    resMsg.setTextColor(getResources().getColor(R.color.lime));
-                    if(language==0) {
-                        resMsg.setText(R.string.quiz_correct_answer);
-                        resCorrect.setText("Correct Answer: "+optionB.getText());
-                        resScore.setText("Current Score: "+String.valueOf(score)+" / "+"10");
-                    }
-                    else {
-                        resMsg.setText(R.string.quiz_correct_answer_bangla);
-                        resCorrect.setText("সঠিক উত্তরঃ "+optionB.getText());
-                        resScore.setText("বর্তমান স্কোরঃ "+String.valueOf(score)+" / "+"10");
-                    }
+                else {
+                    resMsg.setText(R.string.quiz_correct_answer_bangla);
+                    resCorrect.setText("সঠিক উত্তরঃ "+optionA.getText());
+                    resScore.setText("বর্তমান স্কোরঃ "+String.valueOf(score)+" / "+"10");
                 }
-                else wrongAnswer();
-                break;
-
-            case R.id.optionC:
-                if(rtOpInd==2) {
-                    roundTimer.cancel();
-                    correctSnd.start();
-                    optionsView.setVisibility(View.GONE);
-                    resultView.setVisibility(View.VISIBLE);
-                    Picasso.get().load(AnimalDetails.PHOTOS[curr][rndmImgInd]).into(resImg);
-                    score++;
-                    if(roundCnt==10) roundEnd();
-                    resMsg.setTextColor(getResources().getColor(R.color.lime));
-                    if(language==0) {
-                        resMsg.setText(R.string.quiz_correct_answer);
-                        resCorrect.setText("Correct Answer: "+optionC.getText());
-                        resScore.setText("Current Score: "+String.valueOf(score)+" / "+"10");
-                    }
-                    else {
-                        resMsg.setText(R.string.quiz_correct_answer_bangla);
-                        resCorrect.setText("সঠিক উত্তরঃ "+optionC.getText());
-                        resScore.setText("বর্তমান স্কোরঃ "+String.valueOf(score)+" / "+"10");
-                    }
-                }
-                else wrongAnswer();
-                break;
-
-            case R.id.optionD:
-                if(rtOpInd==3) {
-                    roundTimer.cancel();
-                    correctSnd.start();
-                    optionsView.setVisibility(View.GONE);
-                    resultView.setVisibility(View.VISIBLE);
-                    Picasso.get().load(AnimalDetails.PHOTOS[curr][rndmImgInd]).into(resImg);
-                    score++;
-                    if(roundCnt==10) roundEnd();
-                    resMsg.setTextColor(getResources().getColor(R.color.lime));
-                    if(language==0) {
-                        resMsg.setText(R.string.quiz_correct_answer);
-                        resCorrect.setText("Correct Answer: "+optionD.getText());
-                        resScore.setText("Current Score: "+String.valueOf(score)+" / "+"10");
-                    }
-                    else {
-                        resMsg.setText(R.string.quiz_correct_answer_bangla);
-                        resCorrect.setText("সঠিক উত্তরঃ "+optionD.getText());
-                        resScore.setText("বর্তমান স্কোরঃ "+String.valueOf(score)+" / "+"10");
-                    }
-                }
-                else wrongAnswer();
-                break;
-
-            case R.id.nextbtn:
-                click.start();
-                resultView.setVisibility(View.GONE);
-                optionsView.setVisibility(View.VISIBLE);
-                if(roundCnt<10) rounds();
-                else gameFinished();
-                break;
-
-            case R.id.startbtn:
-                click.start();
-                startView.setVisibility(View.GONE);
-                optionsView.setVisibility(View.VISIBLE);
-                heading.setVisibility(View.VISIBLE);
-                question.setVisibility(View.VISIBLE);
-                questionAnimal.setVisibility(View.VISIBLE);
-                questionAnimal.setVisibility(View.VISIBLE);
-                roundCnt = 0;
-                score = 0;
-                wrongs = new int[3];
-                rounds();
-                break;
-
-            case R.id.finishbtn:
-                click.start();
-                finish();
-                break;
+            }
+            else wrongAnswer();
         }
+        else if (view.getId() == R.id.optionB)
+        {
+            if(rtOpInd==1) {
+                roundTimer.cancel();
+                correctSnd.start();
+                optionsView.setVisibility(View.GONE);
+                resultView.setVisibility(View.VISIBLE);
+                Picasso.get().load(AnimalDetails.PHOTOS[curr][rndmImgInd]).into(resImg);
+                score++;
+                if(roundCnt==10) roundEnd();
+                resMsg.setTextColor(getResources().getColor(R.color.lime));
+                if(language==0) {
+                    resMsg.setText(R.string.quiz_correct_answer);
+                    resCorrect.setText("Correct Answer: "+optionB.getText());
+                    resScore.setText("Current Score: "+String.valueOf(score)+" / "+"10");
+                }
+                else {
+                    resMsg.setText(R.string.quiz_correct_answer_bangla);
+                    resCorrect.setText("সঠিক উত্তরঃ "+optionB.getText());
+                    resScore.setText("বর্তমান স্কোরঃ "+String.valueOf(score)+" / "+"10");
+                }
+            }
+            else wrongAnswer();
+        }
+        else if (view.getId() == R.id.optionC)
+        {
+            if(rtOpInd==2) {
+                roundTimer.cancel();
+                correctSnd.start();
+                optionsView.setVisibility(View.GONE);
+                resultView.setVisibility(View.VISIBLE);
+                Picasso.get().load(AnimalDetails.PHOTOS[curr][rndmImgInd]).into(resImg);
+                score++;
+                if(roundCnt==10) roundEnd();
+                resMsg.setTextColor(getResources().getColor(R.color.lime));
+                if(language==0) {
+                    resMsg.setText(R.string.quiz_correct_answer);
+                    resCorrect.setText("Correct Answer: "+optionC.getText());
+                    resScore.setText("Current Score: "+String.valueOf(score)+" / "+"10");
+                }
+                else {
+                    resMsg.setText(R.string.quiz_correct_answer_bangla);
+                    resCorrect.setText("সঠিক উত্তরঃ "+optionC.getText());
+                    resScore.setText("বর্তমান স্কোরঃ "+String.valueOf(score)+" / "+"10");
+                }
+            }
+            else wrongAnswer();
+        }
+        else if (view.getId() == R.id.optionD)
+        {
+            if(rtOpInd==3) {
+                roundTimer.cancel();
+                correctSnd.start();
+                optionsView.setVisibility(View.GONE);
+                resultView.setVisibility(View.VISIBLE);
+                Picasso.get().load(AnimalDetails.PHOTOS[curr][rndmImgInd]).into(resImg);
+                score++;
+                if(roundCnt==10) roundEnd();
+                resMsg.setTextColor(getResources().getColor(R.color.lime));
+                if(language==0) {
+                    resMsg.setText(R.string.quiz_correct_answer);
+                    resCorrect.setText("Correct Answer: "+optionD.getText());
+                    resScore.setText("Current Score: "+String.valueOf(score)+" / "+"10");
+                }
+                else {
+                    resMsg.setText(R.string.quiz_correct_answer_bangla);
+                    resCorrect.setText("সঠিক উত্তরঃ "+optionD.getText());
+                    resScore.setText("বর্তমান স্কোরঃ "+String.valueOf(score)+" / "+"10");
+                }
+            }
+            else wrongAnswer();
+        }
+        else if (view.getId() == R.id.nextbtn)
+        {
+            click.start();
+            resultView.setVisibility(View.GONE);
+            optionsView.setVisibility(View.VISIBLE);
+            if(roundCnt<10) rounds();
+            else gameFinished();
+        }
+        else if (view.getId() == R.id.startbtn)
+        {
+            click.start();
+            startView.setVisibility(View.GONE);
+            optionsView.setVisibility(View.VISIBLE);
+            heading.setVisibility(View.VISIBLE);
+            question.setVisibility(View.VISIBLE);
+            questionAnimal.setVisibility(View.VISIBLE);
+            questionAnimal.setVisibility(View.VISIBLE);
+            roundCnt = 0;
+            score = 0;
+            wrongs = new int[3];
+            rounds();
+        }
+        else if (view.getId() == R.id.finishbtn)
+        {
+            click.start();
+            finish();
+        }
+        else ;
     }
 
 }
